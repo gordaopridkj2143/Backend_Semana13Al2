@@ -16,7 +16,7 @@ class Tarefa(BaseModel):
     Descricao: str
 
 # Armazenamento em memória
-tarefas: List[Tarefa] = []
+tarefas: List[Tarefa] = [{"id":1, "Titulo":"fazer o khan", "Descricao":"faz o L",}]
 proximo_id = 1
 
 # GET /tarefas - Listar todas as tarefas
@@ -44,10 +44,6 @@ def deletar_tarefa(id: int):
 @app.get("/tarefas")
 def ListarTarefas():
     return tarefas
-
-@app.post("/tarefas")
-def CadastrarTarefa(tarefa: Tarefa):
-    tarefas.append({"titulo": tarefa.titulo, "descricao": tarefa.descricao})
     
 # @app.delete("/tarefa")
 # def DeletarTarefa(titulo):
